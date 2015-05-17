@@ -9,13 +9,13 @@
 import UIKit
 
 class MailboxViewController: UIViewController {
-
-    @IBOutlet var scrollView: UIScrollView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        scrollView.contentSize = CGSize(width: 320, height: 1429)
+        scrollView.contentSize = CGSize(width: 320, height: 2240)
         
     }
 
