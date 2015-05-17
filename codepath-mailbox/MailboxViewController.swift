@@ -10,7 +10,11 @@ import UIKit
 
 class MailboxViewController: UIViewController {
     
+    @IBOutlet var menuView: UIView!
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    let openMenuOffset = CGFloat(300)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,4 +28,25 @@ class MailboxViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func didPressHamburger(sender: AnyObject) {
+        if (self.mainView.frame.origin.x == self.openMenuOffset) {
+            self.closeMenu()
+        } else {
+            self.openMenu()
+        }
+    }
+    
+    func openMenu() {
+        self.scrollView.scrollEnabled = false
+        UIView.animateWithDuration(0.4, animations: {
+            self.mainView.frame.origin.x = self.openMenuOffset
+        })
+    }
+    
+    func closeMenu() {
+        self.scrollView.scrollEnabled = true
+        UIView.animateWithDuration(0.4, animations: {
+            self.mainView.frame.origin.x = 0
+        })
+    }
 }

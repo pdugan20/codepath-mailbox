@@ -8,7 +8,7 @@
         <scene sceneID="i8k-xw-5U5">
             <objects>
                 <viewController id="RSR-pD-Az5" customClass="MailboxViewController" customModule="codepath_mailbox" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HOe-Ne-OT8">
+                    <view key="view" contentMode="scaleToFill" id="HOe-Ne-OT8" userLabel="menuView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1429"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -16,17 +16,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="vCx-qD-hKJ">
-                                <rect key="frame" x="68" y="25" width="185" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="" image="later_nav_icon"/>
-                                    <segment title="" image="mail_nav_icon"/>
-                                    <segment title="" image="archive_nav_icon"/>
-                                </segments>
-                                <color key="tintColor" red="0.33333333333333331" green="0.69411764705882351" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
-                            </segmentedControl>
-                            <view contentMode="scaleToFill" id="e0A-Hg-NeX">
+                            <view contentMode="scaleToFill" id="e0A-Hg-NeX" userLabel="mainView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="1429"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -34,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="fQk-eC-79w">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="fQk-eC-79w" userLabel="feedScrollView">
                                         <rect key="frame" x="0.0" y="63" width="320" height="1366"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -56,6 +46,26 @@
                                             </imageView>
                                         </subviews>
                                     </scrollView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4JJ-g2-NJT">
+                                        <rect key="frame" x="9" y="26" width="35" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressHamburger:" destination="RSR-pD-Az5" eventType="touchUpInside" id="z8G-Us-wFK"/>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="vCx-qD-hKJ">
+                                        <rect key="frame" x="68" y="25" width="185" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="" image="later_nav_icon"/>
+                                            <segment title="" image="mail_nav_icon"/>
+                                            <segment title="" image="archive_nav_icon"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.33333333333333331" green="0.69411764705882351" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -65,12 +75,15 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1429"/>
                     <connections>
+                        <outlet property="mainView" destination="e0A-Hg-NeX" id="LXM-VP-QbS"/>
+                        <outlet property="menuView" destination="HOe-Ne-OT8" id="m6W-w1-KjQ"/>
                         <outlet property="scrollView" destination="fQk-eC-79w" id="EZC-Lb-xSG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3H-cm-waJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="ndP-Zv-4Fk"/>
             </objects>
-            <point key="canvasLocation" x="255" y="-84.5"/>
+            <point key="canvasLocation" x="247" y="-84.5"/>
         </scene>
     </scenes>
     <resources>
