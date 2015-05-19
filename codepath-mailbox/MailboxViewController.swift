@@ -13,6 +13,8 @@ class MailboxViewController: UIViewController {
     @IBOutlet var menuView: UIView!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var messageView: UIView!
+    @IBOutlet weak var messageImageView: UIImageView!
     
     var openMenuOffset = CGFloat(300)
     var mainViewCenter = CGPoint()
@@ -30,6 +32,8 @@ class MailboxViewController: UIViewController {
         self.mainView.frame.origin.x = 0
         self.mainViewCenter = self.mainView.center
         
+        // messageCenter = messageImageView.center
+        
         var edgePanGestureLeft = UIScreenEdgePanGestureRecognizer(target: self, action: "onMenuSwipeOpen:")
         edgePanGestureLeft.edges = UIRectEdge.Left
         self.mainView.addGestureRecognizer(edgePanGestureLeft)
@@ -40,22 +44,25 @@ class MailboxViewController: UIViewController {
         
     }
     
+    // Message pan gesture recgonizer
+    @IBAction func didPanMessage(sender: UIPanGestureRecognizer) {
+        var location = sender.locationInView(view)
+        messageImageView.center = location
+    }
+    
     // Left screen edge pan gesture recognizer
     func onMenuSwipeOpen(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
         var translation = gestureRecognizer.translationInView(view)
         var velocity = gestureRecognizer.velocityInView(view)
         
         if gestureRecognizer.state == UIGestureRecognizerState.Began {
-            
-        }
-        else if gestureRecognizer.state == UIGestureRecognizerState.Changed {
+            // do nothing
+        } else if gestureRecognizer.state == UIGestureRecognizerState.Changed {
             self.mainView.center.x = translation.x + mainViewCenter.x
-        }
-        else if gestureRecognizer.state == UIGestureRecognizerState.Ended {
+        } else if gestureRecognizer.state == UIGestureRecognizerState.Ended {
             if (velocity.x >= 0) {
                 openMenu()
-            }
-            else {
+            } else {
                 closeMenu()
             }
         }
@@ -82,7 +89,6 @@ class MailboxViewController: UIViewController {
     
     // Opens hamburger menu
     func openMenu() {
-        self.scrollView.scrollEnabled = false
         UIView.animateWithDuration(0.6, animations: {
             self.menuIsOpen = true
             self.setNeedsStatusBarAppearanceUpdate()
@@ -92,7 +98,6 @@ class MailboxViewController: UIViewController {
     
     // Closes hamburger menu
     func closeMenu() {
-        self.scrollView.scrollEnabled = true
         UIView.animateWithDuration(0.6, animations: {
             self.menuIsOpen = false
             self.setNeedsStatusBarAppearanceUpdate()

@@ -32,10 +32,6 @@
                                                 <rect key="frame" x="0.0" y="165" width="320" height="1202"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="message" id="quk-7x-dAh">
-                                                <rect key="frame" x="0.0" y="79" width="320" height="86"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </imageView>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="search" id="Z6h-h1-S8T">
                                                 <rect key="frame" x="0.0" y="37" width="320" height="42"/>
                                                 <autoresizingMask key="autoresizingMask"/>
@@ -44,6 +40,21 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
+                                            <view contentMode="scaleToFill" id="brr-5g-KqU" userLabel="messageView">
+                                                <rect key="frame" x="0.0" y="79" width="320" height="86"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="message" id="quk-7x-dAh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="Wpe-iH-JYV" appends="YES" id="Hzs-zS-Vi5"/>
+                                                        </connections>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4JJ-g2-NJT">
@@ -77,11 +88,18 @@
                     <connections>
                         <outlet property="mainView" destination="e0A-Hg-NeX" id="LXM-VP-QbS"/>
                         <outlet property="menuView" destination="HOe-Ne-OT8" id="m6W-w1-KjQ"/>
+                        <outlet property="messageImageView" destination="quk-7x-dAh" id="Shi-0y-20s"/>
+                        <outlet property="messageView" destination="brr-5g-KqU" id="ThT-az-x7Q"/>
                         <outlet property="scrollView" destination="fQk-eC-79w" id="EZC-Lb-xSG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3H-cm-waJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="ndP-Zv-4Fk"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Wpe-iH-JYV">
+                    <connections>
+                        <action selector="didPanMessage:" destination="RSR-pD-Az5" id="Er1-4v-C2h"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="247" y="-84.5"/>
         </scene>
