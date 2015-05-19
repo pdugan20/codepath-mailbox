@@ -20,6 +20,8 @@ class MailboxViewController: UIViewController {
     var leftViewOrigin = CGPoint()
     var rightViewOrigin = CGPoint()
     
+    var menuIsOpen: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +40,7 @@ class MailboxViewController: UIViewController {
         
     }
     
+    // Left screen edge pan gesture recognizer
     func onMenuSwipeOpen(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
         var translation = gestureRecognizer.translationInView(view)
         var velocity = gestureRecognizer.velocityInView(view)
@@ -58,6 +61,7 @@ class MailboxViewController: UIViewController {
         }
     }
     
+    // Right screen edge pan gesture recognizer
     func onMenuSwipeClose(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
         closeMenu()
     }
@@ -67,6 +71,7 @@ class MailboxViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // Registers tap action for hamburger menu icon
     @IBAction func didPressHamburger(sender: AnyObject) {
         if (self.mainView.frame.origin.x == self.openMenuOffset) {
             self.closeMenu()
@@ -75,17 +80,32 @@ class MailboxViewController: UIViewController {
         }
     }
     
+    // Opens hamburger menu
     func openMenu() {
         self.scrollView.scrollEnabled = false
         UIView.animateWithDuration(0.6, animations: {
+            self.menuIsOpen = true
+            self.setNeedsStatusBarAppearanceUpdate()
             self.mainView.frame.origin.x = self.openMenuOffset
         })
     }
     
+    // Closes hamburger menu
     func closeMenu() {
         self.scrollView.scrollEnabled = true
         UIView.animateWithDuration(0.6, animations: {
+            self.menuIsOpen = false
+            self.setNeedsStatusBarAppearanceUpdate()
             self.mainView.frame.origin.x = 0
         })
+    }
+    
+    // Sets status bar style to either light or dark (default)
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        if menuIsOpen {
+            return UIStatusBarStyle.LightContent
+        } else {
+            return UIStatusBarStyle.Default
+        }
     }
 }
