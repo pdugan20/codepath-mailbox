@@ -70,7 +70,20 @@ class MailboxViewController: UIViewController {
     
     // Right screen edge pan gesture recognizer
     func onMenuSwipeClose(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
-        closeMenu()
+        var translation = gestureRecognizer.translationInView(view)
+        var velocity = gestureRecognizer.velocityInView(view)
+        
+        if gestureRecognizer.state == UIGestureRecognizerState.Began {
+            // do nothing
+        } else if gestureRecognizer.state == UIGestureRecognizerState.Changed {
+            self.mainView.center.x = translation.x + (mainViewCenter.x + openMenuOffset)
+        } else if gestureRecognizer.state == UIGestureRecognizerState.Ended {
+            if (velocity.x >= 0) {
+                openMenu()
+            } else {
+                closeMenu()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
