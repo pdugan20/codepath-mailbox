@@ -29,10 +29,8 @@ class MailboxViewController: UIViewController {
         
         scrollView.contentSize = CGSize(width: 320, height: 2240)
         
-        self.mainView.frame.origin.x = 0
         self.mainViewCenter = self.mainView.center
-        
-        // messageCenter = messageImageView.center
+        self.messageCenter = self.messageImageView.center
         
         var edgePanGestureLeft = UIScreenEdgePanGestureRecognizer(target: self, action: "onMenuSwipeOpen:")
         edgePanGestureLeft.edges = UIRectEdge.Left
@@ -47,7 +45,10 @@ class MailboxViewController: UIViewController {
     // Message pan gesture recgonizer
     @IBAction func didPanMessage(sender: UIPanGestureRecognizer) {
         var location = sender.locationInView(view)
-        messageImageView.center = location
+        var translation = sender.translationInView(view)
+        var velocity = sender.velocityInView(view)
+        
+        self.messageImageView.center.x = location.x
     }
     
     // Left screen edge pan gesture recognizer
