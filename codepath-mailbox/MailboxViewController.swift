@@ -105,7 +105,7 @@ class MailboxViewController: UIViewController {
                     self.laterIconImageView.frame.origin.x = self.laterIconStartingOrigin.x + 
                         location.x - self.gestureViewStartingOrigin.x + 60
                     
-                    UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.messageView.backgroundColor = self.yellowColor
                         self.laterIconImageView.image = UIImage(named: "later_icon")
                     })
@@ -116,7 +116,7 @@ class MailboxViewController: UIViewController {
                     self.laterIconImageView.frame.origin.x = self.laterIconStartingOrigin.x + 
                         location.x - self.gestureViewStartingOrigin.x + 60
                     
-                    UIView.animateWithDuration(0.2, animations: {  () -> Void in
+                    UIView.animateWithDuration(0.3, animations: {  () -> Void in
                         self.messageView.backgroundColor = self.brownColor
                         self.laterIconImageView.image = UIImage(named: "list_icon")
                     })
@@ -137,7 +137,7 @@ class MailboxViewController: UIViewController {
                     self.archiveIconImageView.frame.origin.x = self.archiveIconStartingOrigin.x +
                         location.x - self.gestureViewStartingOrigin.x - 60
                     
-                    UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.messageView.backgroundColor = self.greenColor
                         self.archiveIconImageView.image = UIImage(named: "archive_icon")
                     })
@@ -148,7 +148,7 @@ class MailboxViewController: UIViewController {
                     self.archiveIconImageView.frame.origin.x = self.archiveIconStartingOrigin.x +
                         location.x - self.gestureViewStartingOrigin.x - 60
                     
-                    UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.messageView.backgroundColor = self.redColor
                         self.archiveIconImageView.image = UIImage(named: "delete_icon")
                     })
@@ -166,7 +166,7 @@ class MailboxViewController: UIViewController {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.messageImageView.frame.origin.x = self.messageViewStartingOrigin.x
                         self.laterIconImageView.frame.origin.x = self.laterIconStartingOrigin.x
-                        self.laterIconImageView.alpha = 0.5
+                        self.laterIconImageView.alpha = 0
                         self.messageView.backgroundColor = self.grayColor
                     })
                 }
@@ -208,7 +208,7 @@ class MailboxViewController: UIViewController {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.messageImageView.frame.origin.x = self.messageViewStartingOrigin.x
                         self.archiveIconImageView.frame.origin.x = self.archiveIconStartingOrigin.x
-                        self.archiveIconImageView.alpha = 0.5
+                        self.archiveIconImageView.alpha = 0
                         self.messageView.backgroundColor = self.grayColor
                     })
                 
