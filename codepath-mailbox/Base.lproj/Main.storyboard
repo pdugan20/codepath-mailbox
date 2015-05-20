@@ -20,24 +20,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="1429"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="nav" id="RPh-bu-ArE">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="fQk-eC-79w" userLabel="feedScrollView">
                                         <rect key="frame" x="0.0" y="63" width="320" height="1366"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="feed" id="j3d-V9-c3q">
                                                 <rect key="frame" x="0.0" y="165" width="320" height="1202"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </imageView>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="search" id="Z6h-h1-S8T">
-                                                <rect key="frame" x="0.0" y="37" width="320" height="42"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </imageView>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="help_label" id="Xao-mM-1ux">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" id="brr-5g-KqU" userLabel="messageView">
@@ -64,6 +52,18 @@
                                             </view>
                                         </subviews>
                                     </scrollView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="nav" id="RPh-bu-ArE">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="search" id="Z6h-h1-S8T">
+                                        <rect key="frame" x="0.0" y="100" width="320" height="42"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="help_label" id="Xao-mM-1ux">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="37"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4JJ-g2-NJT">
                                         <rect key="frame" x="9" y="26" width="35" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -94,6 +94,7 @@
                     <size key="freeformSize" width="320" height="1429"/>
                     <connections>
                         <outlet property="archiveIconImageView" destination="n9g-XU-Unj" id="hmw-jB-7uy"/>
+                        <outlet property="feedImageView" destination="j3d-V9-c3q" id="bYf-Wm-Iq8"/>
                         <outlet property="laterIconImageView" destination="mXC-Gb-IrA" id="GlY-Z5-tH3"/>
                         <outlet property="mainView" destination="e0A-Hg-NeX" id="LXM-VP-QbS"/>
                         <outlet property="menuView" destination="HOe-Ne-OT8" id="m6W-w1-KjQ"/>
