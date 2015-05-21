@@ -39,13 +39,14 @@ class MailboxViewController: UIViewController {
     var laterIconStartingOrigin: CGPoint!
     var archiveIconStartingOrigin: CGPoint!
     
+    var scrollViewHeight = 2240
     var menuIsOpen: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the scrollView content size
-        scrollView.contentSize = CGSize(width: 320, height: 2240)
+        scrollView.contentSize = CGSize(width: 320, height: scrollViewHeight)
         
         // Store center coordinates for views
         self.mainViewCenter = self.mainView.center
@@ -260,6 +261,10 @@ class MailboxViewController: UIViewController {
                 self.archiveIconImageView.alpha = 0
                 self.messageView.backgroundColor = self.grayColor
         })
+        
+        // Update scrollView height
+        self.scrollViewHeight -= 86
+        scrollView.contentSize = CGSize(width: 320, height: scrollViewHeight)
     }
         
     // Left screen edge pan gesture recognizer
