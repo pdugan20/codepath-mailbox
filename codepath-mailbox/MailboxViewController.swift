@@ -18,6 +18,8 @@ class MailboxViewController: UIViewController {
     @IBOutlet weak var archiveIconImageView: UIImageView!
     @IBOutlet weak var laterIconImageView: UIImageView!
     @IBOutlet weak var feedImageView: UIImageView!
+    @IBOutlet weak var listImageView: UIImageView!
+    @IBOutlet weak var rescheduleImageView: UIImageView!
     
     let blueColor = UIColor(red: 68/255, green: 170/255, blue: 210/255, alpha: 1)
     let yellowColor = UIColor(red: 254/255, green: 202/255, blue: 22/255, alpha: 1)
@@ -49,9 +51,11 @@ class MailboxViewController: UIViewController {
         self.mainViewCenter = self.mainView.center
         self.messageCenter = self.messageImageView.center
         
-        // Hide icons on initial view load
+        // Hide icons and full-screen images on initial view load
         laterIconImageView.alpha = 0
         archiveIconImageView.alpha = 0
+        listImageView.alpha = 0
+        rescheduleImageView.alpha = 0
         
         // Initially set messageView background color to yellow
         self.messageView.backgroundColor = self.grayColor
@@ -181,7 +185,7 @@ class MailboxViewController: UIViewController {
                     // Show options imageView
                     }, completion: { (BOOL) -> Void in
                         UIView.animateWithDuration(0.3, animations: { () -> Void in
-                            // self.rescheduleView.alpha = 1
+                            self.rescheduleImageView.alpha = 1
                         })
                     })
                 
@@ -195,7 +199,7 @@ class MailboxViewController: UIViewController {
                         // Show options imageView
                         }, completion: { (BOOL) -> Void in
                             UIView.animateWithDuration(0.3, animations: { () -> Void in
-                            // self.listView.alpha = 1
+                                self.listImageView.alpha = 1
                         })
                     })
                 }
@@ -297,6 +301,24 @@ class MailboxViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Tap gesture recgonizer that hides ListImageView
+    @IBAction func didTapListImageView(sender: UITapGestureRecognizer) {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.listImageView.alpha = 0
+            }, completion: { (BOOL) -> Void in
+            self.hideMessageView()
+        })
+    }
+    
+    // Tap gesture recgonizer that hides RescheduleImageView
+    @IBAction func didTapRescheduleImageView(sender: UITapGestureRecognizer) {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.rescheduleImageView.alpha = 0
+            }, completion: { (BOOL) -> Void in
+                self.hideMessageView()
+        })
     }
 
     // Registers tap action for hamburger menu icon
